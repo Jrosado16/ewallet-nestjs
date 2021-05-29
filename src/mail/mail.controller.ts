@@ -10,16 +10,16 @@ export class MailController {
     @Post('/contact')
     async contactMail(@Response() res, @Body() body: iMailData){
         const mail = await this.mailService.sendEmail(body);
-        return mail;
-        // if(mail){
-            // res.status(HttpStatus.OK).json({
-                // ok: true,
-                // message: mail
-            // })
-        // }
-        // res.status(HttpStatus.BAD_REQUEST).json({
-        //     ok: false,
-        //     message: mail
-        // })
+        // return mail;
+        if(mail){
+            res.status(HttpStatus.OK).json({
+                ok: true,
+                message: "correo enviado"
+            })
+        }
+        res.status(HttpStatus.BAD_REQUEST).json({
+            ok: false,
+            message: "Hubo un error"
+        })
     }
 }
