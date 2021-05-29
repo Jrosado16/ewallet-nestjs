@@ -13,12 +13,12 @@ export class MailController {
         if(mail){
             res.status(HttpStatus.OK).json({
                 ok: true,
-                message: "correo enviado"
+                message: mail
             })
         }
         res.status(HttpStatus.BAD_REQUEST).json({
             ok: false,
-            message: "Hubo un error"
+            message: mail
         })
     }
 }

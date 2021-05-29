@@ -10,8 +10,8 @@ export class MailService {
     async sendEmail(emailData: iMailData) {
       console.log(emailData);
         const { name, description, email, subject} = emailData;
-        try {
-          await this.mailerService.sendMail({
+        // try {
+          const mail = await this.mailerService.sendMail({
             to: email,
             cc: 'krlos_1594@yahoo.com', // send me email
             subject,
@@ -22,9 +22,14 @@ export class MailService {
               email,
             },
           });
-          return true;
-        } catch (error) {
-          console.log(error);
-        }
+          if(mail){
+            return mail;
+
+          }else{
+            return mail
+          }
+        // } catch (error) {
+        //   console.log(error);
+        // }
       }
 }
