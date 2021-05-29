@@ -22,12 +22,12 @@ export class MailService {
               email,
             },
           });
-          if(mail){
+          // if(mail){
             return mail;
 
-          }else{
-            return mail
-          }
+          // }else{
+          //   return mail
+          // }
         // } catch (error) {
         //   console.log(error);
         // }
