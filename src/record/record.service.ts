@@ -63,7 +63,9 @@ export class RecordService {
 
     async removeBalance(user, amount: number){
         const { email, balance } = user;
-        if(balance >= amount){
+        const newUser = await this.usersModel.findOne({email: email})
+
+        if(newUser.balance >= amount){
             const user = await this.usersModel.findOneAndUpdate(
                 {email: email},
                 {$inc: {balance: -amount}},
